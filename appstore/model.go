@@ -76,35 +76,16 @@ type (
 		CancellationDatePST string `json:"cancellation_date_pst,omitempty"`
 	}
 
-	// The GracePeriodDate type indicates the grace period date for the subscription
-	GracePeriodDate struct {
-		GracePeriodDate    string `json:"grace_period_expires_date,omitempty"`
-		GracePeriodDateMS  string `json:"grace_period_expires_date_ms,omitempty"`
-		GracePeriodDatePST string `json:"grace_period_expires_date_pst,omitempty"`
-	}
-
-	// AutoRenewStatusChangeDate type indicates the auto renew status change date
-	AutoRenewStatusChangeDate struct {
-		AutoRenewStatusChangeDate    string `json:"auto_renew_status_change_date"`
-		AutoRenewStatusChangeDateMS  string `json:"auto_renew_status_change_date_ms"`
-		AutoRenewStatusChangeDatePST string `json:"auto_renew_status_change_date_pst"`
-	}
-
 	// The InApp type has the receipt attributes
 	InApp struct {
-		Quantity                    string `json:"quantity"`
-		ProductID                   string `json:"product_id"`
-		TransactionID               string `json:"transaction_id"`
-		OriginalTransactionID       string `json:"original_transaction_id"`
-		WebOrderLineItemID          string `json:"web_order_line_item_id,omitempty"`
-		PromotionalOfferID          string `json:"promotional_offer_id"`
-		SubscriptionGroupIdentifier string `json:"subscription_group_identifier"`
-		OfferCodeRefName            string `json:"offer_code_ref_name,omitempty"`
+		Quantity              string `json:"quantity"`
+		ProductID             string `json:"product_id"`
+		TransactionID         string `json:"transaction_id"`
+		OriginalTransactionID string `json:"original_transaction_id"`
+		WebOrderLineItemID    string `json:"web_order_line_item_id,omitempty"`
 
 		IsTrialPeriod        string `json:"is_trial_period"`
 		IsInIntroOfferPeriod string `json:"is_in_intro_offer_period,omitempty"`
-		IsUpgraded           string `json:"is_upgraded,omitempty"`
-
 		ExpiresDate
 
 		PurchaseDate
@@ -139,9 +120,6 @@ type (
 		SubscriptionPriceConsentStatus string `json:"price_consent_status"`
 		ProductID                      string `json:"product_id"`
 		OriginalTransactionID          string `json:"original_transaction_id"`
-		OfferCodeRefName               string `json:"offer_code_ref_name,omitempty"`
-
-		GracePeriodDate
 	}
 
 	// The IAPResponse type has the response properties
@@ -167,16 +145,14 @@ type (
 
 	// IAPResponseForIOS6 is iOS 6 style receipt schema.
 	IAPResponseForIOS6 struct {
-		AutoRenewProductID       string         `json:"auto_renew_product_id"`
-		AutoRenewStatus          int            `json:"auto_renew_status"`
-		CancellationReason       string         `json:"cancellation_reason,omitempty"`
-		ExpirationIntent         string         `json:"expiration_intent,omitempty"`
-		IsInBillingRetryPeriod   string         `json:"is_in_billing_retry_period,omitempty"`
-		Receipt                  ReceiptForIOS6 `json:"receipt"`
-		LatestExpiredReceiptInfo ReceiptForIOS6 `json:"latest_expired_receipt_info"`
-		LatestReceipt            string         `json:"latest_receipt"`
-		LatestReceiptInfo        ReceiptForIOS6 `json:"latest_receipt_info"`
-		Status                   int            `json:"status"`
+		AutoRenewProductID     string         `json:"auto_renew_product_id"`
+		AutoRenewStatus        int            `json:"auto_renew_status"`
+		CancellationReason     string         `json:"cancellation_reason,omitempty"`
+		ExpirationIntent       string         `json:"expiration_intent,omitempty"`
+		IsInBillingRetryPeriod string         `json:"is_in_billing_retry_period,omitempty"`
+		LatestReceiptInfo      ReceiptForIOS6 `json:"latest_expired_receipt_info"`
+		Receipt                ReceiptForIOS6 `json:"receipt"`
+		Status                 int            `json:"status"`
 	}
 
 	ReceiptForIOS6 struct {
